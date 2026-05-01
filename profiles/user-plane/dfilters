@@ -49,13 +49,13 @@
 "GTPv2 Modify Bearer Request (34)" gtpv2.message_type == 34
 "GTPv2 Delete Session Request (36)" gtpv2.message_type == 36
 "GTPv2 cause not Accepted" gtpv2.cause and gtpv2.cause != 16
-"GTPv2 by F-TEID IPv4" gtpv2.f_teid.ipv4
-"GTPv2 by F-TEID IPv6" gtpv2.f_teid.ipv6
-"GTPv2 by EPS Bearer ID" gtpv2.bearer_id
+"GTPv2 by F-TEID IPv4" gtpv2.f_teid_ipv4
+"GTPv2 by F-TEID IPv6" gtpv2.f_teid_ipv6
+"GTPv2 by EPS Bearer ID" gtpv2.ebi
 "GTPv2 by APN" gtpv2.apn
 #
 # === Cross-cutting per-subscriber ===
-"By IMSI in GTPv2-C" gtpv2.imsi
+"By MEI in GTPv2-C" gtpv2.mei
 "By IMSI in GTPv1-C" gtp.imsi
 "By UE IP via PFCP" pfcp.ue_ip_addr_ipv4 == 10.0.0.1
 "By GTP-U TEID hex" gtp.teid == 0xdeadbeef

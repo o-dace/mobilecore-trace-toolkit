@@ -22,6 +22,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import csv
 import re
 import shutil
 import subprocess
@@ -41,6 +42,8 @@ DFILTER_BEARING_FILES = ("dfilters", "colorfilters", "dfilter_buttons")
 #   ngap.procedureCode, nas-5gs.mm.message_type, nas_eps.nas_msg_emm_type,
 #   pfcp.apply_action.forw, x2ap.SgNBAdditionRequest_element
 FIELD_RE = re.compile(r"\b([A-Za-z][A-Za-z0-9_\-]*\.[A-Za-z0-9_.\-]+)")
+DFILTER_LINE_RE = re.compile(r'^"(?:[^"\\]|\\.)*"\s*(?P<expr>.*)$')
+QUOTED_STRING_RE = re.compile(r'"(?:[^"\\]|\\.)*"')
 
 # Tokens that look like fields but aren't. Drop these to avoid false positives.
 NOT_FIELDS = {
@@ -55,6 +58,28 @@ NOT_FIELDS = {
 }
 
 
+def _filter_expressions(filename: str, line: str) -> list[str]:
+    """Extract display-filter expressions from a Wireshark profile line."""
+    if filename == "dfilter_buttons":
+        try:
+            row = next(csv.reader([line], escapechar="\\"))
+        except csv.Error:
+            return []
+        return [row[2]] if len(row) >= 3 else []
+
+    if filename == "colorfilters":
+        parts = line.split("@", 3)
+        return [parts[2]] if len(parts) >= 4 else []
+
+    match = DFILTER_LINE_RE.match(line)
+    return [match.group("expr") if match else line]
+
+
+def _without_quoted_strings(expression: str) -> str:
+    """Remove string literals so values like "IEEE-802.11" are not treated as fields."""
+    return QUOTED_STRING_RE.sub('""', expression)
+
+
 def collect_fields(profile_dir: Path) -> set[str]:
     """Return the set of every dotted token used in this profile's filter files."""
     found: set[str] = set()
@@ -66,19 +91,21 @@ def collect_fields(profile_dir: Path) -> set[str]:
             stripped = line.strip()
             if not stripped or stripped.startswith("#"):
                 continue
-            for match in FIELD_RE.finditer(stripped):
-                token = match.group(1).rstrip(".-_")
-                if "." not in token:
-                    continue
-                # Reject tokens whose every part is purely numeric, since those
-                # are IP literals like 10.0.0.1, not field names.
-                parts = token.split(".")
-                if all(p.replace("-", "").isdigit() for p in parts):
-                    continue
-                # Reject tokens that look like version strings (1.2.0).
-                if all(p.replace("_", "").replace("-", "").isdigit() for p in parts):
-                    continue
-                found.add(token)
+            for expression in _filter_expressions(filename, stripped):
+                expression = _without_quoted_strings(expression)
+                for match in FIELD_RE.finditer(expression):
+                    token = match.group(1).rstrip(".-_")
+                    if "." not in token:
+                        continue
+                    # Reject tokens whose every part is purely numeric, since those
+                    # are IP literals like 10.0.0.1, not field names.
+                    parts = token.split(".")
+                    if all(p.replace("-", "").isdigit() for p in parts):
+                        continue
+                    # Reject tokens that look like version strings (1.2.0).
+                    if all(p.replace("_", "").replace("-", "").isdigit() for p in parts):
+                        continue
+                    found.add(token)
     return found
 
 
