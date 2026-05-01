@@ -1,0 +1,11 @@
+####### User Interface ########
+gui.column.format:
+	"No.", "%m",
+	"Time", "%t",
+	"Source", "%s",
+	"Destination", "%d",
+	"Protocol", "%p",
+	"PFCP / GTP / GTPv2", "%Cus:pfcp.msg_type:0:R or %Cus:gtp.message:0:R or %Cus:gtpv2.message_type:0:R",
+	"TEID / SEID", "%Cus:gtp.teid:0:R or %Cus:pfcp.f_teid.teid:0:R",
+	"Cause", "%Cus:pfcp.cause:0:R or %Cus:gtpv2.cause:0:R or %Cus:gtp.cause:0:R",
+	"Info", "%i"

@@ -1,0 +1,11 @@
+####### User Interface ########
+gui.column.format:
+	"No.", "%m",
+	"Time", "%t",
+	"Source", "%s",
+	"Destination", "%d",
+	"Protocol", "%p",
+	"RANAP", "%Cus:ranap.procedureCode:0:R",
+	"MAP opCode", "%Cus:gsm_old.opCode:0:R",
+	"GTPv1 msg", "%Cus:gtp.message:0:R",
+	"Info", "%i"

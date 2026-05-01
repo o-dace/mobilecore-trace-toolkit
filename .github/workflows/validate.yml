@@ -1,0 +1,32 @@
+name: Validate profiles
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Wireshark / tshark
+        run: |
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tshark
+          echo "Validating against the tshark version packaged for this runner:"
+          tshark --version | head -1
+
+      - name: Parser-only sanity check
+        run: python validate.py --no-tshark
+
+      - name: Validate against tshark dissector tables
+        run: python validate.py

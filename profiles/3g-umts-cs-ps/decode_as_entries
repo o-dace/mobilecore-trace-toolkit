@@ -1,0 +1,2 @@
+decode_as_entry: udp.port,2123,(none),gtp
+decode_as_entry: udp.port,2152,(none),gtp

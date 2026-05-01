@@ -1,0 +1,2 @@
+decode_as_entry: sctp.port,36412,(none),s1ap
+decode_as_entry: sctp.port,36422,(none),x2ap

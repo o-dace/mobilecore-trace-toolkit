@@ -1,0 +1,4 @@
+# "Decode As" entries — coerce protocol decoding for non-default ports.
+# Format: dissector,layer-type,selector,initial-dissector,current-dissector
+decode_as_entry: sctp.port,38412,(none),ngap
+decode_as_entry: udp.port,8805,(none),pfcp

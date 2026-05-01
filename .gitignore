@@ -1,0 +1,17 @@
+# Validation tool artifacts
+.cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Local Wireshark editor backups
+*~
+*.bak
+recent_common
+recent
+gui.geometry
+
+# OS
+.DS_Store
+Thumbs.db

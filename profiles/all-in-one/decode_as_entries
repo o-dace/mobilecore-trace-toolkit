@@ -1,0 +1,11 @@
+decode_as_entry: sctp.port,38412,(none),ngap
+decode_as_entry: sctp.port,36412,(none),s1ap
+decode_as_entry: sctp.port,36422,(none),x2ap
+decode_as_entry: udp.port,8805,(none),pfcp
+decode_as_entry: udp.port,2123,(none),gtpv2
+decode_as_entry: udp.port,2152,(none),gtp
+decode_as_entry: tcp.port,3868,(none),diameter
+decode_as_entry: sctp.port,3868,(none),diameter
+decode_as_entry: udp.port,5060,(none),sip
+decode_as_entry: udp.port,500,(none),isakmp
+decode_as_entry: udp.port,4500,(none),isakmp

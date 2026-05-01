@@ -1,0 +1,23 @@
+# Wireshark profile preferences for 5G SA core analysis.
+# Tweaks favour signalling visibility over generic packet inspection.
+
+####### User Interface ########
+gui.ask_unsaved: TRUE
+gui.column.format:
+	"No.", "%m",
+	"Time", "%t",
+	"Source", "%s",
+	"S Port", "%uS",
+	"Destination", "%d",
+	"D Port", "%uD",
+	"Protocol", "%p",
+	"Length", "%L",
+	"5GMM/5GSM/NGAP", "%Cus:nas-5gs.mm.message_type:0:R or %Cus:nas-5gs.sm.message_type:0:R or %Cus:ngap.procedureCode:0:R",
+	"Info", "%i"
+
+####### Protocols ########
+# Reassemble HTTP/2 streams so SBI bodies are decoded across frames.
+http2.heuristic_http2: TRUE
+
+# NGAP runs on SCTP — make sure default ports are included.
+sctp.checksum: TRUE

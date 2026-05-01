@@ -1,0 +1,3 @@
+decode_as_entry: udp.port,8805,(none),pfcp
+decode_as_entry: udp.port,2123,(none),gtpv2
+decode_as_entry: udp.port,2152,(none),gtp

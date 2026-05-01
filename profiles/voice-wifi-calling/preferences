@@ -1,0 +1,10 @@
+####### User Interface ########
+gui.column.format:
+	"No.", "%m",
+	"Time", "%t",
+	"Source", "%s",
+	"Destination", "%d",
+	"Protocol", "%p",
+	"IKE exch / EAP / SIP", "%Cus:isakmp.exchangetype:0:R or %Cus:eap.type:0:R or %Cus:sip.Method:0:R or %Cus:sip.Status-Code:0:R",
+	"GTPv2 msg", "%Cus:gtpv2.message_type:0:R",
+	"Info", "%i"

@@ -1,0 +1,5 @@
+decode_as_entry: udp.port,5060,(none),sip
+decode_as_entry: tcp.port,5060,(none),sip
+decode_as_entry: tcp.port,5061,(none),sip.tls
+decode_as_entry: tcp.port,3868,(none),diameter
+decode_as_entry: sctp.port,3868,(none),diameter

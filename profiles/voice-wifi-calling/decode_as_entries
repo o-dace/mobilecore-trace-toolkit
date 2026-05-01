@@ -1,0 +1,3 @@
+decode_as_entry: udp.port,500,(none),isakmp
+decode_as_entry: udp.port,4500,(none),isakmp
+decode_as_entry: udp.port,2123,(none),gtpv2

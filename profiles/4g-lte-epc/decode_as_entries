@@ -1,0 +1,5 @@
+decode_as_entry: sctp.port,36412,(none),s1ap
+decode_as_entry: udp.port,2123,(none),gtpv2
+decode_as_entry: udp.port,2152,(none),gtp
+decode_as_entry: tcp.port,3868,(none),diameter
+decode_as_entry: sctp.port,3868,(none),diameter

@@ -1,0 +1,22 @@
+####### User Interface ########
+gui.column.format:
+	"No.", "%m",
+	"Time", "%t",
+	"Source", "%s",
+	"Destination", "%d",
+	"Protocol", "%p",
+	"Method/Status", "%Cus:sip.Method:0:R or %Cus:sip.Status-Code:0:R",
+	"Call-ID", "%Cus:sip.Call-ID:0:R",
+	"From", "%Cus:sip.from.user:0:R",
+	"To", "%Cus:sip.to.user:0:R",
+	"Info", "%i"
+
+####### Protocols ########
+# SIP — show all headers in expanded view; reassemble TCP across segments.
+sip.desegment_headers: TRUE
+sip.desegment_body: TRUE
+sip.retrans_the_same_sport: TRUE
+
+# RTP/RTCP — heuristic decode lets us pick up media on dynamic ports.
+rtp.heuristic_rtp: TRUE
+rtcp.heuristic_rtcp: TRUE
