@@ -2,7 +2,7 @@
 @SgNB Add Reject@x2ap.SgNBAdditionRequestReject_element@[0,0,0][65535,32896,32896]
 @X2 HO Prep Failure@x2ap.HandoverPreparationFailure_element@[0,0,0][65535,32896,32896]
 @S1 / X2 any Cause@s1ap.Cause or x2ap.Cause@[0,0,0][65535,16448,16448]
-@NAS-EPS Reject@nas_eps.emm.cause or nas_eps.esm.cause@[0,0,0][65535,16448,16448]
+@NAS-EPS Reject@nas-eps.emm.cause or nas-eps.esm.cause@[0,0,0][65535,16448,16448]
 @SgNB Add Request@x2ap.SgNBAdditionRequest_element@[0,0,0][57344,49344,65535]
 @SgNB Add Ack@x2ap.SgNBAdditionRequestAcknowledge_element@[0,0,0][32896,65535,32896]
 @X2 Handover@x2ap.HandoverRequest_element or x2ap.HandoverRequestAcknowledge_element@[0,0,0][57344,49344,65535]

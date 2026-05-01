@@ -2,5 +2,5 @@
 "TRUE","SgNB Add","x2ap.SgNBAdditionRequest_element or x2ap.SgNBAdditionRequestAcknowledge_element or x2ap.SgNBAdditionRequestReject_element","Secondary node addition flow"
 "TRUE","X2 HO","x2ap.HandoverRequest_element or x2ap.HandoverRequestAcknowledge_element","X2 handover"
 "TRUE","S1 Setup","s1ap.InitialContextSetupRequest_element or s1ap.InitialContextSetupResponse_element","Initial context"
-"TRUE","Failures","s1ap.Cause or x2ap.Cause or nas_eps.emm.cause or nas_eps.esm.cause","Anything carrying a cause"
+"TRUE","Failures","s1ap.Cause or x2ap.Cause or nas-eps.emm.cause or nas-eps.esm.cause","Anything carrying a cause"
 "TRUE","RRC","lte-rrc or nr-rrc","All RRC"

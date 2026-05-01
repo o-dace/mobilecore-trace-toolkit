@@ -47,8 +47,8 @@
 "GTP-U PDU (255)" gtp.message == 255
 #
 # === Per-subscriber ===
-"By IMSI" gtp.imsi == "123456789012345" or gsm_map.imsi == "123456789012345"
-"By MSISDN" gtp.msisdn or gsm_map.msisdn
+"By IMSI" e212.imsi == "123456789012345" or gsm_map.imsi == "123456789012345"
+"By MSISDN" gsm_map.msisdn
 "By APN" gtp.apn contains "internet"
 "By GTP TEID" gtp.teid == 0x1
 #

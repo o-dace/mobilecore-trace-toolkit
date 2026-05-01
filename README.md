@@ -57,7 +57,7 @@ This catches the most common breakage mode for shared Wireshark profiles: a fiel
 Wireshark's field names aren't always what you'd guess from the 3GPP spec. A few that catch people out, all enforced by the validator:
 
 - 5G NAS uses dotted dashes: `nas-5gs.mm.message_type`
-- 4G NAS uses underscores: `nas_eps.nas_msg_emm_type`. The field is `nas_msg_emm_type`, not `emm.message_type`
+- 4G NAS uses a dashed protocol prefix and underscored message fields: `nas-eps.nas_msg_emm_type`
 - PFCP message type is `pfcp.msg_type`, not `pfcp.message_type`
 - 3G MAP operation codes live under the legacy namespace `gsm_old.opCode`, not `gsm_map.opCode`
 - NGAP / S1AP / X2AP procedures use `_element` suffixes (e.g. `ngap.InitialUEMessage_element`) rather than encoding procedure presence as `procedureCode == N`

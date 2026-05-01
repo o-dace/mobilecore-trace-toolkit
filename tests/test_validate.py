@@ -4,6 +4,19 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from validate import PROFILES_DIR, collect_fields
 
+CI_REPORTED_STALE_FIELDS = {
+    "gtp.imsi",
+    "gtp.msisdn",
+    "gtpv2.msisdn",
+    "nas_eps.emm.cause",
+    "nas_eps.esm.cause",
+    "nas_eps.nas_msg_emm_type",
+    "nas_eps.nas_msg_esm_type",
+    "ngap.UnsuccessfulOutcome_element",
+    "x2ap.NeweNB_UE_X2AP_ID",
+    "x2ap.OldeNB_UE_X2AP_ID",
+}
+
 
 def test_collect_fields_ignores_dotted_strings(tmp_path: Path) -> None:
     profile = tmp_path / "profile"
@@ -39,3 +52,15 @@ def test_user_plane_gtpv2_filters_use_current_field_names() -> None:
     assert "gtpv2.f_teid_ipv4" in fields
     assert "gtpv2.f_teid_ipv6" in fields
     assert "gtpv2.ebi" in fields
+
+
+def test_profiles_do_not_reference_ci_reported_stale_fields() -> None:
+    offenders: dict[str, list[str]] = {}
+    for profile_dir in PROFILES_DIR.iterdir():
+        if not profile_dir.is_dir():
+            continue
+        stale = sorted(collect_fields(profile_dir) & CI_REPORTED_STALE_FIELDS)
+        if stale:
+            offenders[profile_dir.name] = stale
+
+    assert offenders == {}

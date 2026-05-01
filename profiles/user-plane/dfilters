@@ -56,6 +56,6 @@
 #
 # === Cross-cutting per-subscriber ===
 "By MEI in GTPv2-C" gtpv2.mei
-"By IMSI in GTPv1-C" gtp.imsi
+"By IMSI" e212.imsi
 "By UE IP via PFCP" pfcp.ue_ip_addr_ipv4 == 10.0.0.1
 "By GTP-U TEID hex" gtp.teid == 0xdeadbeef

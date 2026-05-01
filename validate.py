@@ -39,7 +39,7 @@ DFILTER_BEARING_FILES = ("dfilters", "colorfilters", "dfilter_buttons")
 # very tight so we don't mistake hex literals or string contents for fields.
 # A field token: starts with a letter, may contain letters/digits/_/-, must
 # contain at least one '.' (i.e. proto.field). Examples we want to match:
-#   ngap.procedureCode, nas-5gs.mm.message_type, nas_eps.nas_msg_emm_type,
+#   ngap.procedureCode, nas-5gs.mm.message_type, nas-eps.nas_msg_emm_type,
 #   pfcp.apply_action.forw, x2ap.SgNBAdditionRequest_element
 FIELD_RE = re.compile(r"\b([A-Za-z][A-Za-z0-9_\-]*\.[A-Za-z0-9_.\-]+)")
 DFILTER_LINE_RE = re.compile(r'^"(?:[^"\\]|\\.)*"\s*(?P<expr>.*)$')

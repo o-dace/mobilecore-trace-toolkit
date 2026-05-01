@@ -5,7 +5,7 @@ gui.column.format:
 	"Source", "%s",
 	"Destination", "%d",
 	"Protocol", "%p",
-	"EMM/ESM", "%Cus:nas_eps.nas_msg_emm_type:0:R or %Cus:nas_eps.nas_msg_esm_type:0:R",
+	"EMM/ESM", "%Cus:nas-eps.nas_msg_emm_type:0:R or %Cus:nas-eps.nas_msg_esm_type:0:R",
 	"S1AP / GTPv2", "%Cus:s1ap.procedureCode:0:R or %Cus:gtpv2.message_type:0:R",
 	"Diameter cmd", "%Cus:diameter.cmd.code:0:R",
 	"Info", "%i"

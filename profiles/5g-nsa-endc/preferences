@@ -6,5 +6,5 @@ gui.column.format:
 	"Destination", "%d",
 	"Protocol", "%p",
 	"S1/X2 procedure", "%Cus:s1ap.procedureCode:0:R or %Cus:x2ap.procedureCode:0:R",
-	"NAS-EPS msg", "%Cus:nas_eps.nas_msg_emm_type:0:R or %Cus:nas_eps.nas_msg_esm_type:0:R",
+	"NAS-EPS msg", "%Cus:nas-eps.nas_msg_emm_type:0:R or %Cus:nas-eps.nas_msg_esm_type:0:R",
 	"Info", "%i"

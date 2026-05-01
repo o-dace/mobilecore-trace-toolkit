@@ -33,10 +33,10 @@
 "S1: any Cause" s1ap.Cause
 #
 # === LTE NAS messages controlling EN-DC bearers ===
-"NAS: ESM Modify Bearer Request" nas_eps.nas_msg_esm_type == 0xc9
-"NAS: ESM Activate Dedicated Bearer Request" nas_eps.nas_msg_esm_type == 0xc5
-"NAS: any EMM cause present" nas_eps.emm.cause
-"NAS: any ESM cause present" nas_eps.esm.cause
+"NAS: ESM Modify Bearer Request" nas-eps.nas_msg_esm_type == 0xc9
+"NAS: ESM Activate Dedicated Bearer Request" nas-eps.nas_msg_esm_type == 0xc5
+"NAS: any EMM cause present" nas-eps.emm.cause
+"NAS: any ESM cause present" nas-eps.esm.cause
 #
 # === RRC carried inside X2 ===
 "NR-RRC any" nr-rrc
@@ -51,5 +51,5 @@
 # === Per-UE slicing ===
 "For specific eNB-UE-S1AP-ID" s1ap.ENB_UE_S1AP_ID == 1
 "For specific MME-UE-S1AP-ID" s1ap.MME_UE_S1AP_ID == 1
-"For specific X2 UE ID (old)" x2ap.OldeNB_UE_X2AP_ID == 1
-"For specific X2 UE ID (new)" x2ap.NeweNB_UE_X2AP_ID == 1
+"For specific X2 UE ID (source)" x2ap.source_eNB_UE_X2AP_ID == 1
+"For specific X2 UE ID (new)" x2ap.new_eNB_UE_X2AP_ID == 1

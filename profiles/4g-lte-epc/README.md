@@ -5,7 +5,7 @@ For analyzing LTE Evolved Packet Core control-plane traces. S1, S11, S5/S8, and 
 ## What it covers
 
 - **S1-AP** between eNodeB and MME (SCTP 36412).
-- **NAS-EPS** EMM and ESM, surfaced via dedicated filters and a custom column. The dissector field names are `nas_eps.nas_msg_emm_type` and `nas_eps.nas_msg_esm_type`. Note the underscore form differs from the 5G profile, which uses dotted `nas-5gs.mm.message_type`.
+- **NAS-EPS** EMM and ESM, surfaced via dedicated filters and a custom column. The dissector field names are `nas-eps.nas_msg_emm_type` and `nas-eps.nas_msg_esm_type`; the protocol prefix is dashed, while the message fields keep underscored names.
 - **GTPv2-C** on S11 (MME ↔ SGW) and S5/S8 (SGW ↔ PGW): Create Session, Modify Bearer, Delete Session, Create / Update / Delete Bearer.
 - **Diameter S6a** (Application-Id 16777251) for the MME ↔ HSS interface, with command codes for ULR (316), AIR (318), CLR (317), IDR (319), NOR (323), PUR (321).
 

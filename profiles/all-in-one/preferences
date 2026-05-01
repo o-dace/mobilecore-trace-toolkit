@@ -6,7 +6,7 @@ gui.column.format:
 	"Destination", "%d",
 	"Protocol", "%p",
 	"5G NAS", "%Cus:nas-5gs.mm.message_type:0:R or %Cus:nas-5gs.sm.message_type:0:R",
-	"4G NAS", "%Cus:nas_eps.nas_msg_emm_type:0:R or %Cus:nas_eps.nas_msg_esm_type:0:R",
+	"4G NAS", "%Cus:nas-eps.nas_msg_emm_type:0:R or %Cus:nas-eps.nas_msg_esm_type:0:R",
 	"AP procedure", "%Cus:ngap.procedureCode:0:R or %Cus:s1ap.procedureCode:0:R or %Cus:x2ap.procedureCode:0:R or %Cus:ranap.procedureCode:0:R",
 	"GTP/PFCP", "%Cus:pfcp.msg_type:0:R or %Cus:gtp.message:0:R or %Cus:gtpv2.message_type:0:R",
 	"SIP/Diameter", "%Cus:sip.Method:0:R or %Cus:sip.Status-Code:0:R or %Cus:diameter.cmd.code:0:R",

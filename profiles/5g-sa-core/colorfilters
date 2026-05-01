@@ -3,7 +3,7 @@
 # Format: @name@filter@[fg_r,fg_g,fg_b][bg_r,bg_g,bg_b]
 @5GMM Reject@nas-5gs.mm.message_type == 0x44 or nas-5gs.mm.5gmm_cause@[0,0,0][65535,32896,32896]
 @5GSM Reject@nas-5gs.sm.message_type == 0xc3 or nas-5gs.sm.5gsm_cause@[0,0,0][65535,32896,32896]
-@NGAP Failure / Cause@ngap.Cause or ngap.UnsuccessfulOutcome_element@[0,0,0][65535,16448,16448]
+@NGAP Failure / Cause@ngap.Cause or ngap.unsuccessfulOutcome_element@[0,0,0][65535,16448,16448]
 @SBI Server Error@http2.header.value matches "^5"@[0,0,0][65535,16448,16448]
 @SBI Client Error@http2.header.value matches "^4"@[0,0,0][65535,49344,32896]
 @Registration Accept@nas-5gs.mm.message_type == 0x42@[0,0,0][32896,65535,32896]
